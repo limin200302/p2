@@ -1,0 +1,110 @@
+/* Reset dan Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #f4f6fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Navigasi */
+header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 1.2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+header h1 {
+  font-size: 1.8rem;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #3f51b5, #5c6bc0);
+  color: white;
+  padding: 5rem 10%;
+  text-align: center;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero button {
+  background-color: #ffca28;
+  color: #333;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.hero button:hover {
+  background-color: #ffc107;
+}
+
+/* Features Section */
+.features {
+  padding: 4rem 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.feature {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.feature:hover {
+  transform: translateY(-5px);
+}
+.feature h3 {
+  margin-bottom: 1rem;
+  color: #3f51b5;
+}
+
+/* Footer */
+footer {
+  background-color: #303f9f;
+  color: white;
+  text-align: center;
+  padding: 2rem 10%;
+}
+footer p {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Responsif Tambahan */
+@media screen and (max-width: 600px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p, .hero button {
+    font-size: 1rem;
+  }
+}
