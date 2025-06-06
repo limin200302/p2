@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up Mobile Legends</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <section class="form-section">
+    <h2>Top Up Mobile Legends</h2>
+    <form id="topupForm">
+      <label for="mlbb-id">ID Pengguna:</label>
+      <input type="text" id="mlbb-id" required />
+
+      <label for="mlbb-nominal">Pilih Nominal:</label>
+      <select id="mlbb-nominal" required>
+        <option value="86 Diamond">86 Diamond</option>
+        <option value="172 Diamond">172 Diamond</option>
+        <option value="344 Diamond">344 Diamond</option>
+      </select>
+
+      <label for="mlbb-payment">Metode Pembayaran:</label>
+      <select id="mlbb-payment" required>
+        <option value="OVO">OVO</option>
+        <option value="DANA">DANA</option>
+        <option value="ShopeePay">ShopeePay</option>
+        <option value="Transfer Bank">Transfer Bank</option>
+      </select>
+
+      <label for="mlbb-name">Nama Pemesan:</label>
+      <input type="text" id="mlbb-name" required />
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("topupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const id = document.getElementById("mlbb-id").value;
+      const nominal = document.getElementById("mlbb-nominal").value;
+      const payment = document.getElementById("mlbb-payment").value;
+      const name = document.getElementById("mlbb-name").value;
+
+      const pesan = `🛒 Pesanan Top Up\nGame: Mobile Legends\nID: ${id}\nNominal: ${nominal}\nPembayaran: ${payment}\nNama: ${name}`;
+      const nomorAdmin = "6285713056206";
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
