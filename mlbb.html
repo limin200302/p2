@@ -6,6 +6,23 @@
   <title>Top Up Mobile Legends</title>
   <link rel="stylesheet" href="assets/style.css" />
   <style>
+    .diamond-item {
+      font-size: 12px;
+      padding: 8px;
+    }
+    .diamond-item.selected {
+      background-color: #cce5ff !important;
+      border: 2px solid #007bff;
+    }
+    .diamond-item .checkmark {
+      margin-left: auto;
+      color: green;
+      font-size: 16px;
+      display: none;
+    }
+    .diamond-item.selected .checkmark {
+      display: block;
+    }
     body {
       background-color: #000;
       color: #003366;
@@ -86,13 +103,13 @@
 </head>
 <body>
   <div class="diamond-list" style="margin-left: 10%;">
-        <div class="diamond-item" style="background: transparent; border: none; box-shadow: none;">
-          <img src="assets/image/diamond.png" alt="Diamond" />
+        <div class="diamond-item$1" onclick="selectItem(this)">
+          <img src="assets/images/diamond.png" alt="Diamond" />
           <div style="flex-grow:1; font-size: 14px; color: #003366;"><strong style="font-size: 13px;">$1</strong><br><span style="font-size: 12px;">$2</span></div><img src='assets/images/diamond.png' alt='Diamond' style='width:24px;height:24px;'/>
-          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
+          <span class="checkmark">✔</span>
         </div>
         <div class="diamond-item">
-          <img src="assets/image/diamond.png" alt="Diamond" />
+          <img src="assets/images/diamond.png" alt="Diamond" />
           <div>
             <strong>172 Diamond</strong>
             <p>Rp30.000</p>
@@ -100,7 +117,7 @@
           <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
-          <img src="assets/image/diamond.png" alt="Diamond" />
+          <img src="assets/images/diamond.png" alt="Diamond" />
           <div>
             <strong>344 Diamond</strong>
             <p>Rp60.000</p>
@@ -116,7 +133,7 @@
           <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
-          <img src="assets/image/diamond.png" alt="Diamond" />
+          <img src="assets/images/diamond.png" alt="Diamond" />
           <div>
             <strong>2.000 Diamond</strong>
             <p>Rp300.000</p>
@@ -124,7 +141,7 @@
           <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
-          <img src="assets/image/diamond.png" alt="Diamond" />
+          <img src="assets/images/diamond.png" alt="Diamond" />
           <div>
             <strong>4.000 Diamond</strong>
             <p>Rp400.000</p>
@@ -172,6 +189,10 @@ Nama: ${name}`;
     function showDetail(item, price) {
       document.getElementById("price-detail").style.display = "block";
       document.getElementById("detail-text").textContent = `${item} - ${price}`;
+    }
+  function selectItem(element) {
+      document.querySelectorAll('.diamond-item').forEach(item => item.classList.remove('selected'));
+      element.classList.add('selected');
     }
   </script>
 </body>
