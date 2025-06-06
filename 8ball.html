@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up 8 Ball Pool</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <section class="form-section">
+    <h2>Top Up 8 Ball Pool</h2>
+    <form id="topupForm">
+      <label for="8ball-id">ID Pengguna:</label>
+      <input type="text" id="8ball-id" required />
+
+      <label for="8ball-nominal">Pilih Nominal:</label>
+      <select id="8ball-nominal" required>
+        <option value="50.000 Coin">50.000 Coin</option>
+        <option value="125.000 Coin">125.000 Coin</option>
+        <option value="250.000 Coin">250.000 Coin</option>
+      </select>
+
+      <label for="8ball-payment">Metode Pembayaran:</label>
+      <select id="8ball-payment" required>
+        <option value="OVO">OVO</option>
+        <option value="DANA">DANA</option>
+        <option value="ShopeePay">ShopeePay</option>
+        <option value="Transfer Bank">Transfer Bank</option>
+      </select>
+
+      <label for="8ball-name">Nama Pemesan:</label>
+      <input type="text" id="8ball-name" required />
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("topupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const id = document.getElementById("8ball-id").value;
+      const nominal = document.getElementById("8ball-nominal").value;
+      const payment = document.getElementById("8ball-payment").value;
+      const name = document.getElementById("8ball-name").value;
+
+      const pesan = `🛒 Pesanan Top Up\nGame: 8 Ball Pool\nID: ${id}\nNominal: ${nominal}\nPembayaran: ${payment}\nNama: ${name}`;
+      const nomorAdmin = "6285713056206";
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
