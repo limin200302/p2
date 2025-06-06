@@ -97,11 +97,7 @@
             <strong>86 Diamond</strong>
             <p>Rp15.000</p>
           </div>
-          <div class="qty-control">
-            <button type="button" onclick="adjustQty(-1, 'qty1')">−</button>
-            <input type="number" id="qty1" value="0" readonly />
-            <button type="button" onclick="adjustQty(1, 'qty1')">+</button>
-          </div>
+          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
           <img src="assets/images/diamond.png" alt="Diamond" />
@@ -109,11 +105,7 @@
             <strong>172 Diamond</strong>
             <p>Rp30.000</p>
           </div>
-          <div class="qty-control">
-            <button type="button" onclick="adjustQty(-1, 'qty2')">−</button>
-            <input type="number" id="qty2" value="0" readonly />
-            <button type="button" onclick="adjustQty(1, 'qty2')">+</button>
-          </div>
+          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
           <img src="assets/images/diamond.png" alt="Diamond" />
@@ -121,11 +113,7 @@
             <strong>344 Diamond</strong>
             <p>Rp60.000</p>
           </div>
-          <div class="qty-control">
-            <button type="button" onclick="adjustQty(-1, 'qty3')">−</button>
-            <input type="number" id="qty3" value="0" readonly />
-            <button type="button" onclick="adjustQty(1, 'qty3')">+</button>
-          </div>
+          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
           <img src="assets/images/diamond.png" alt="Diamond" />
@@ -133,11 +121,7 @@
             <strong>1.000 Diamond</strong>
             <p>Rp225.000</p>
           </div>
-          <div class="qty-control">
-            <button type="button" onclick="adjustQty(-1, 'qty4')">−</button>
-            <input type="number" id="qty4" value="0" readonly />
-            <button type="button" onclick="adjustQty(1, 'qty4')">+</button>
-          </div>
+          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
           <img src="assets/images/diamond.png" alt="Diamond" />
@@ -145,11 +129,7 @@
             <strong>2.000 Diamond</strong>
             <p>Rp300.000</p>
           </div>
-          <div class="qty-control">
-            <button type="button" onclick="adjustQty(-1, 'qty5')">−</button>
-            <input type="number" id="qty5" value="0" readonly />
-            <button type="button" onclick="adjustQty(1, 'qty5')">+</button>
-          </div>
+          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
           <img src="assets/images/diamond.png" alt="Diamond" />
@@ -157,11 +137,7 @@
             <strong>4.000 Diamond</strong>
             <p>Rp400.000</p>
           </div>
-          <div class="qty-control">
-            <button type="button" onclick="adjustQty(-1, 'qty6')">−</button>
-            <input type="number" id="qty6" value="0" readonly />
-            <button type="button" onclick="adjustQty(1, 'qty6')">+</button>
-          </div>
+          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
       </div>
 
@@ -175,6 +151,11 @@
 
       <label for="mlbb-name">Nama Pemesan:</label>
       <input type="text" id="mlbb-name" required />
+
+      <div id="price-detail" style="margin-top:20px; background:#fff; color:#003366; padding:10px; border-radius:8px; display:none;">
+  <strong>Detail Harga:</strong>
+  <p id="detail-text"></p>
+</div>
 
       <button type="submit">Kirim ke WhatsApp</button>
     </form>
@@ -197,30 +178,29 @@
       const id = document.getElementById("mlbb-id").value;
       const payment = document.getElementById("mlbb-payment").value;
       const name = document.getElementById("mlbb-name").value;
+      const detailText = document.getElementById("detail-text").textContent;
 
-      const qty1 = parseInt(document.getElementById("qty1").value);
-      const qty2 = parseInt(document.getElementById("qty2").value);
-      const qty3 = parseInt(document.getElementById("qty3").value);
-      const qty4 = parseInt(document.getElementById("qty4").value);
-      const qty5 = parseInt(document.getElementById("qty5").value);
-      const qty6 = parseInt(document.getElementById("qty6").value);
+      if (!detailText) {
+        alert("Silakan pilih salah satu item terlebih dahulu.");
+        return;
+      }
 
-      let nominalList = [];
-      if (qty1 > 0) nominalList.push(`${qty1} x 86 Diamond`);
-      if (qty2 > 0) nominalList.push(`${qty2} x 172 Diamond`);
-      if (qty3 > 0) nominalList.push(`${qty3} x 344 Diamond`);
-      if (qty4 > 0) nominalList.push(`${qty4} x 1.000 Diamond`);
-      if (qty5 > 0) nominalList.push(`${qty5} x 2.000 Diamond`);
-      if (qty6 > 0) nominalList.push(`${qty6} x 4.000 Diamond`);
-
-      const nominal = nominalList.join(', ');
-
-      const pesan = `🛒 Pesanan Top Up\nGame: Mobile Legends\nID: ${id}\nNominal: ${nominal}\nPembayaran: ${payment}\nNama: ${name}`;
+      const pesan = `🛒 Pesanan Top Up
+Game: Mobile Legends
+ID: ${id}
+Nominal: ${detailText}
+Pembayaran: ${payment}
+Nama: ${name}`;
       const nomorAdmin = "6285713056206";
       const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
 
       window.open(url, "_blank");
     });
+
+    function showDetail(item, price) {
+      document.getElementById("price-detail").style.display = "block";
+      document.getElementById("detail-text").textContent = `${item} - ${price}`;
+    }
   </script>
 </body>
 </html>
