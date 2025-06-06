@@ -7,147 +7,66 @@
   <link rel="stylesheet" href="assets/style.css" />
   <style>
     body {
-  background: url('assets/image/background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: transparent;
-  
-}
-    }
-    .popup {
-  width: 90%;
-  max-width: 400px;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
+      background: url('assets/image/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
       padding: 20px;
+      background-color: transparent;
+    }
+    .banner img {
+      background-color: rgba(255, 255, 255, 0.7);
+      height: 350px;
+      object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-    .popup select, .popup button {
-      margin-top: 10px;
       display: block;
-      width: 100%;
+      margin: 0 auto;
     }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: transparent;
-      z-index: 999;
+    .form-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .game-options {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .game-option img {
+      width: 128px;
+      height: 128px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .game-option img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
-  
 
   <section class="banner" style="margin-top: 0;">
-    <style>
-      .banner img {
-        background-color: rgba(255, 255, 255, 0.7);
-        height: 350px;
-        object-fit: cover;
-        border-radius: 10px;
-        display: block;
-        margin: 0 auto;
-      }
-    </style>
     <img src="assets/image/banner.jpg" alt="Banner Promosi" />
   </section>
 
   <section class="form-section">
-    <h2>Form Top Up</h2>
+    <h2>Pilih Game</h2>
     <div class="game-options">
       <label class="game-option">
-        <input type="radio" name="game" value="Mobile Legends" onclick="openPopup('mlbb')" />
-        <img src="assets/image/mlbb.png" alt="Mobile Legends" width="128" height="128" />
+        <a href="mlbb.html">
+          <img src="assets/image/mlbb.png" alt="Mobile Legends" />
+        </a>
       </label>
       <label class="game-option">
-        <input type="radio" name="game" value="8 Ball Pool" onclick="openPopup('8ball')" />
-        <img src="assets/image/8ball.png" alt="8 Ball Pool" width="128" height="128" />
+        <a href="8ball.html">
+          <img src="assets/image/8ball.png" alt="8 Ball Pool" />
+        </a>
       </label>
     </div>
   </section>
 
-  <div id="overlay" class="overlay hidden" onclick="closePopup()"></div>
-
-  <div id="popup-mlbb" class="popup hidden">
-    <h3>Top Up Mobile Legends</h3>
-    <form onsubmit="submitToWhatsApp(event, 'Mobile Legends')">
-      <input type="text" id="mlbb-id" placeholder="ID Pengguna" required />
-      <select id="mlbb-nominal" required>
-        <option value="86 Diamond">86 Diamond</option>
-        <option value="172 Diamond">172 Diamond</option>
-        <option value="344 Diamond">344 Diamond</option>
-      </select>
-      <select id="mlbb-payment" required>
-        <option value="OVO">OVO</option>
-        <option value="DANA">DANA</option>
-        <option value="ShopeePay">ShopeePay</option>
-        <option value="Transfer Bank">Transfer Bank</option>
-      </select>
-      <input type="text" id="mlbb-name" placeholder="Nama Pemesan" required />
-      <button type="submit">Kirim ke WhatsApp</button>
-    </form>
-  </div>
-
-  <div id="popup-8ball" class="popup hidden">
-    <h3>Top Up 8 Ball Pool</h3>
-    <form onsubmit="submitToWhatsApp(event, '8 Ball Pool')">
-      <input type="text" id="8ball-id" placeholder="ID Pengguna" required />
-      <select id="8ball-nominal" required>
-        <option value="50.000 Coin">50.000 Coin</option>
-        <option value="125.000 Coin">125.000 Coin</option>
-        <option value="250.000 Coin">250.000 Coin</option>
-      </select>
-      <select id="8ball-payment" required>
-        <option value="OVO">OVO</option>
-        <option value="DANA">DANA</option>
-        <option value="ShopeePay">ShopeePay</option>
-        <option value="Transfer Bank">Transfer Bank</option>
-      </select>
-      <input type="text" id="8ball-name" placeholder="Nama Pemesan" required />
-      <button type="submit">Kirim ke WhatsApp</button>
-    </form>
-  </div>
-
-  <footer>
+  <footer style="text-align:center; color:#fff; margin-top:40px;">
     <p>&copy; 2025 Ucup Mamet Store. All rights reserved.</p>
   </footer>
 
-  <script>
-    function openPopup(game) {
-      document.getElementById('overlay').classList.remove('hidden');
-      document.getElementById(`popup-${game}`).classList.remove('hidden');
-    }
-
-    function closePopup() {
-      document.getElementById('overlay').classList.add('hidden');
-      document.getElementById('popup-mlbb').classList.add('hidden');
-      document.getElementById('popup-8ball').classList.add('hidden');
-    }
-
-    function submitToWhatsApp(e, game) {
-      e.preventDefault();
-      const id = document.getElementById(`${game === 'Mobile Legends' ? 'mlbb' : '8ball'}-id`).value;
-      const nominal = document.getElementById(`${game === 'Mobile Legends' ? 'mlbb' : '8ball'}-nominal`).value;
-      const payment = document.getElementById(`${game === 'Mobile Legends' ? 'mlbb' : '8ball'}-payment`).value;
-      const name = document.getElementById(`${game === 'Mobile Legends' ? 'mlbb' : '8ball'}-name`).value;
-
-      const pesan = `🛒 Pesanan Top Up\nGame: ${game}\nID: ${id}\nNominal: ${nominal}\nPembayaran: ${payment}\nNama: ${name}`;
-      const nomorAdmin = "6285713056206";
-      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-
-      closePopup();
-    }
-  </script>
 </body>
 </html>
-
