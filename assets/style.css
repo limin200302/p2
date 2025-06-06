@@ -1,93 +1,99 @@
+
+## ✅ Fitur
+- UI responsif
+- Formulir dinamis untuk tiap game
+- Kirim otomatis ke WhatsApp admin
+- Desain ringan & cepat diakses
+
+## 📞 Kontak WhatsApp Admin
+`+62 857-1305-6206`
+
+---
+
+## 🎨 `assets/style.css`
+
+Gabungan style untuk semua halaman (index, mlbb, dan 8ball).
+
+```css
 body {
+  background: url('../assets/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
   font-family: Arial, sans-serif;
   padding: 20px;
-  background: #f9f9f9;
+  background-color: transparent;
 }
 
-header {
-  background: #222;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-}
-
+/* Banner */
 .banner img {
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
-  margin-top: 10px;
-  border-radius: 8px;
+  height: 350px;
+  width: 1200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
 }
 
+/* Form Container */
 .form-section {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 400px;
+  margin: 30px auto;
   padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 form label {
-  font-weight: bold;
   display: block;
-  margin: 12px 0 5px;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
 form input,
 form select {
   width: 100%;
   padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 4px;
+  margin-top: 5px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
 button {
+  width: 100%;
   background: #28a745;
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s ease;
 }
-
 button:hover {
   background: #218838;
 }
 
-/* Game selection visual style */
+/* Game Logo Grid */
 .game-options {
   display: flex;
-  gap: 20px;
   justify-content: center;
-  margin: 15px 0;
+  gap: 30px;
+  margin-top: 20px;
 }
-
-.game-option {
-  text-align: center;
+.game-option img {
+  width: 128px;
+  height: 128px;
   cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  padding: 5px;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
+}
+.game-option img:hover {
+  transform: scale(1.1);
 }
 
-.game-option:hover,
-.game-option input:checked + img {
-  border: 2px solid #28a745;
-  border-radius: 8px;
-}
-
-/* Remove default radio display */
-.game-option input {
-  display: none;
-}
-
+/* Footer */
 footer {
   text-align: center;
+  color: #fff;
   margin-top: 40px;
-  padding: 20px;
-  color: #777;
+  padding: 10px;
 }
