@@ -5,6 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Up Mobile Legends</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .diamond-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .diamond-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .diamond-item img {
+      width: 40px;
+      height: 40px;
+    }
+    .qty-control {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .qty-control input {
+      width: 40px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .qty-control button {
+      padding: 4px 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <section class="form-section">
@@ -13,25 +56,42 @@
       <label for="mlbb-id">ID Pengguna:</label>
       <input type="text" id="mlbb-id" required />
 
-      <div class="nominal-section">
-        <p>Pilih Nominal:</p>
-        <div class="nominal-option">
-          <span>86 Diamond - Rp15.000</span>
-          <button type="button" onclick="adjustQty(-1, 'qty1')">-</button>
-          <input type="number" id="qty1" value="0" min="0" readonly />
-          <button type="button" onclick="adjustQty(1, 'qty1')">+</button>
+      <div class="diamond-list">
+        <div class="diamond-item">
+          <img src="assets/image/diamond.png" alt="Diamond" />
+          <div>
+            <strong>86 Diamond</strong>
+            <p>Rp15.000</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="adjustQty(-1, 'qty1')">−</button>
+            <input type="number" id="qty1" value="0" readonly />
+            <button type="button" onclick="adjustQty(1, 'qty1')">+</button>
+          </div>
         </div>
-        <div class="nominal-option">
-          <span>172 Diamond - Rp30.000</span>
-          <button type="button" onclick="adjustQty(-1, 'qty2')">-</button>
-          <input type="number" id="qty2" value="0" min="0" readonly />
-          <button type="button" onclick="adjustQty(1, 'qty2')">+</button>
+        <div class="diamond-item">
+          <img src="assets/images/diamond.png" alt="Diamond" />
+          <div>
+            <strong>172 Diamond</strong>
+            <p>Rp30.000</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="adjustQty(-1, 'qty2')">−</button>
+            <input type="number" id="qty2" value="0" readonly />
+            <button type="button" onclick="adjustQty(1, 'qty2')">+</button>
+          </div>
         </div>
-        <div class="nominal-option">
-          <span>344 Diamond - Rp60.000</span>
-          <button type="button" onclick="adjustQty(-1, 'qty3')">-</button>
-          <input type="number" id="qty3" value="0" min="0" readonly />
-          <button type="button" onclick="adjustQty(1, 'qty3')">+</button>
+        <div class="diamond-item">
+          <img src="assets/images/diamond.png" alt="Diamond" />
+          <div>
+            <strong>344 Diamond</strong>
+            <p>Rp60.000</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="adjustQty(-1, 'qty3')">−</button>
+            <input type="number" id="qty3" value="0" readonly />
+            <button type="button" onclick="adjustQty(1, 'qty3')">+</button>
+          </div>
         </div>
       </div>
 
