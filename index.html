@@ -16,6 +16,8 @@
 }
     }
     .popup {
+  width: 90%;
+  max-width: 400px;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -46,7 +48,17 @@
   
 
   <section class="banner" style="margin-top: 0;">
-    <img src="assets/image/banner.jpg" alt="Banner Promosi" width="1200" height="400" />
+    <style>
+      .banner img {
+        width: 1200px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+    <img src="assets/image/banner.jpg" alt="Banner Promosi" />
   </section>
 
   <section class="form-section">
@@ -54,7 +66,7 @@
     <div class="game-options">
       <label class="game-option">
         <input type="radio" name="game" value="Mobile Legends" onclick="openPopup('mlbb')" />
-        <img src="assets/image/mlbb.png" alt="Mobile Legends" width="128" height="128" />
+        <img src="assets/images/mlbb.png" alt="Mobile Legends" width="128" height="128" />
       </label>
       <label class="game-option">
         <input type="radio" name="game" value="8 Ball Pool" onclick="openPopup('8ball')" />
