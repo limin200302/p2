@@ -14,6 +14,7 @@
     .diamond-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 80%;
       max-width: 60%;
       margin: 20px auto;
       gap: 16px;
@@ -85,18 +86,10 @@
 </head>
 <body>
   <section class="form-section">
-    <h2>Top Up Mobile Legends</h2>
-    <form id="topupForm">
-      <label for="mlbb-id">ID Pengguna:</label>
-      <input type="text" id="mlbb-id" required />
-
-      <div class="diamond-list">
+    <div class="diamond-list">
         <div class="diamond-item">
           <img src="assets/images/diamond.png" alt="Diamond" />
-          <div>
-            <strong>86 Diamond</strong>
-            <p>Rp15.000</p>
-          </div>
+          <div style="flex-grow:1; font-size: 14px; color: #003366;"><strong style="font-size: 13px;">$1</strong><br><span style="font-size: 12px;">$2</span></div><img src='assets/images/diamond.png' alt='Diamond' style='width:24px;height:24px;'/>
           <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
         <div class="diamond-item">
@@ -140,24 +133,6 @@
           <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
         </div>
       </div>
-
-      <label for="mlbb-payment">Metode Pembayaran:</label>
-      <select id="mlbb-payment" required>
-        <option value="OVO">OVO</option>
-        <option value="DANA">DANA</option>
-        <option value="ShopeePay">ShopeePay</option>
-        <option value="Transfer Bank">Transfer Bank</option>
-      </select>
-
-      <label for="mlbb-name">Nama Pemesan:</label>
-      <input type="text" id="mlbb-name" required />
-
-      <div id="price-detail" style="margin-top:20px; background:#fff; color:#003366; padding:10px; border-radius:8px; display:none;">
-  <strong>Detail Harga:</strong>
-  <p id="detail-text"></p>
-</div>
-
-      <button type="submit">Kirim ke WhatsApp</button>
     </form>
   </section>
 
