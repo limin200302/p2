@@ -13,7 +13,9 @@
     }
     .diamond-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 60%;
+      margin: 20px auto;
       gap: 16px;
       margin-top: 20px;
     }
@@ -125,6 +127,42 @@
             <button type="button" onclick="adjustQty(1, 'qty3')">+</button>
           </div>
         </div>
+        <div class="diamond-item">
+          <img src="assets/images/diamond.png" alt="Diamond" />
+          <div>
+            <strong>1.000 Diamond</strong>
+            <p>Rp225.000</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="adjustQty(-1, 'qty4')">−</button>
+            <input type="number" id="qty4" value="0" readonly />
+            <button type="button" onclick="adjustQty(1, 'qty4')">+</button>
+          </div>
+        </div>
+        <div class="diamond-item">
+          <img src="assets/images/diamond.png" alt="Diamond" />
+          <div>
+            <strong>2.000 Diamond</strong>
+            <p>Rp300.000</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="adjustQty(-1, 'qty5')">−</button>
+            <input type="number" id="qty5" value="0" readonly />
+            <button type="button" onclick="adjustQty(1, 'qty5')">+</button>
+          </div>
+        </div>
+        <div class="diamond-item">
+          <img src="assets/images/diamond.png" alt="Diamond" />
+          <div>
+            <strong>4.000 Diamond</strong>
+            <p>Rp400.000</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="adjustQty(-1, 'qty6')">−</button>
+            <input type="number" id="qty6" value="0" readonly />
+            <button type="button" onclick="adjustQty(1, 'qty6')">+</button>
+          </div>
+        </div>
       </div>
 
       <label for="mlbb-payment">Metode Pembayaran:</label>
@@ -163,11 +201,17 @@
       const qty1 = parseInt(document.getElementById("qty1").value);
       const qty2 = parseInt(document.getElementById("qty2").value);
       const qty3 = parseInt(document.getElementById("qty3").value);
+      const qty4 = parseInt(document.getElementById("qty4").value);
+      const qty5 = parseInt(document.getElementById("qty5").value);
+      const qty6 = parseInt(document.getElementById("qty6").value);
 
       let nominalList = [];
       if (qty1 > 0) nominalList.push(`${qty1} x 86 Diamond`);
       if (qty2 > 0) nominalList.push(`${qty2} x 172 Diamond`);
       if (qty3 > 0) nominalList.push(`${qty3} x 344 Diamond`);
+      if (qty4 > 0) nominalList.push(`${qty4} x 1.000 Diamond`);
+      if (qty5 > 0) nominalList.push(`${qty5} x 2.000 Diamond`);
+      if (qty6 > 0) nominalList.push(`${qty6} x 4.000 Diamond`);
 
       const nominal = nominalList.join(', ');
 
