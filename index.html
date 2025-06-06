@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tentang Kami - ViePay</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ucup Mamet Store</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <header>
-    <h1>ViePay</h1>
-    <nav>
-      <a href="index.html">Beranda</a>
-      <a href="tentang.html">Tentang</a>
-      <a href="fitur.html">Fitur</a>
-      <a href="kontak.html">Kontak</a>
-    </nav>
+    <h1>Ucup Mamet Store</h1>
   </header>
 
-  <section class="hero">
-    <h2>Tentang Kami</h2>
-    <p>ViePay hadir sebagai solusi pembayaran digital modern yang mempermudah setiap transaksi Anda.</p>
+  <section class="banner">
+    <img src="assets/images/banner.jpg" alt="Banner Promosi" width="1200" height="400" />
   </section>
 
-  <section class="features">
-    <div class="feature">
-      <h3>Visi Kami</h3>
-      <p>Menjadi platform pembayaran digital terpercaya di Indonesia yang dapat digunakan oleh seluruh lapisan masyarakat.</p>
-    </div>
-    <div class="feature">
-      <h3>Misi Kami</h3>
-      <p>Menghadirkan layanan transaksi yang cepat, aman, dan mudah dijangkau di mana saja dan kapan saja.</p>
-    </div>
-    <div class="feature">
-      <h3>Nilai-nilai Utama</h3>
-      <p>Keamanan, kenyamanan, dan inovasi adalah inti dari setiap produk dan layanan kami.</p>
-    </div>
+  <section class="form-section">
+    <h2>Form Top Up</h2>
+    <form id="topupForm">
+      <p>Pilih Game:</p>
+      <div class="game-options">
+        <label class="game-option">
+          <input type="radio" name="game" value="Mobile Legends" required />
+          <img src="assets/images/mlbb.png" alt="Mobile Legends" width="128" height="128" />
+        </label>
+        <label class="game-option">
+          <input type="radio" name="game" value="8 Ball Pool" required />
+          <img src="assets/images/8ball.png" alt="8 Ball Pool" width="128" height="128" />
+        </label>
+      </div><br />
+
+      <label for="id">ID Pengguna:</label>
+      <input type="text" id="id" required /><br />
+
+      <label for="nominal">Pilih Nominal:</label>
+      <select id="nominal" required>
+        <option value="86 Diamond">86 Diamond</option>
+        <option value="172 Diamond">172 Diamond</option>
+        <option value="344 Diamond">344 Diamond</option>
+      </select><br />
+
+      <label for="payment">Metode Pembayaran:</label>
+      <select id="payment" required>
+        <option value="OVO">OVO</option>
+        <option value="DANA">DANA</option>
+        <option value="ShopeePay">ShopeePay</option>
+        <option value="Transfer Bank">Transfer Bank</option>
+      </select><br />
+
+      <label for="name">Nama Pemesan:</label>
+      <input type="text" id="name" required /><br />
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
   </section>
 
   <footer>
-    <h2>ViePay</h2>
-    <p>&copy; 2025 ViePay. Semua Hak Dilindungi.</p>
+    <p>&copy; 2025 Ucup Mamet Store. All rights reserved.</p>
   </footer>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>
