@@ -6,9 +6,14 @@
   <title>Top Up Mobile Legends</title>
   <link rel="stylesheet" href="assets/style.css" />
   <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
     .diamond-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-top: 20px;
     }
@@ -18,13 +23,19 @@
       gap: 10px;
       padding: 12px;
       border: 1px solid #ccc;
-      border-radius: 10px;
+      border-radius: 12px;
       background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      color: #003366;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .diamond-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
     .diamond-item img {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
     }
     .qty-control {
       margin-left: auto;
@@ -37,15 +48,36 @@
       text-align: center;
       border: 1px solid #ccc;
       border-radius: 5px;
+      background-color: #f0f0f0;
     }
     .qty-control button {
-      padding: 4px 10px;
-      background: #28a745;
+      padding: 6px 12px;
+      background: linear-gradient(to right, #28a745, #218838);
       color: white;
       border: none;
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .qty-control button:hover {
+      background: linear-gradient(to right, #218838, #1e7e34);
+    }
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: linear-gradient(to right, #007bff, #0056b3);
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(to right, #0056b3, #003f88);
     }
   </style>
 </head>
@@ -58,7 +90,7 @@
 
       <div class="diamond-list">
         <div class="diamond-item">
-          <img src="assets/image/diamond.png" alt="Diamond" />
+          <img src="assets/images/diamond.png" alt="Diamond" />
           <div>
             <strong>86 Diamond</strong>
             <p>Rp15.000</p>
