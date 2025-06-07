@@ -111,3 +111,16 @@ footer {
   background-color: white;
   border-radius: 10px;
 }
+#price-detail {
+  display: none;
+  margin-top: 20px;
+  width: 320px; /* atau sesuaikan jika ingin lebih kecil */
+  padding: 6px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #000;
+  font-size: 12px;
+  text-align: left;
+}
+
