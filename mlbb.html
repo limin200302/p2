@@ -7,24 +7,7 @@
   <link rel="stylesheet" href="assets/style.css" />
   <style>
     body {
-      background: linear-gradient(to right, #1e3c72, #2a0845); /* biru ke ungu */
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .main-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 200px;
-    }
-
-    .left-box {
-      width: 200px;
-      height: 420px;
-      background-color: white;
-      border-radius: 10px;
+      background: linear-gradient(to right, #1e3c72, #2a0845);
     }
 
     .diamond-list {
@@ -88,21 +71,43 @@
     #price-detail {
       display: none;
       margin-top: 20px;
-      width: 100%;
-      max-width: 600px;
-      padding: 5px 10px;
+      width: 320px;
+      padding: 6px 10px;
       background-color: #f8f9fa;
       border: 1px solid #ccc;
       border-radius: 10px;
       color: #000;
-      font-size: 13px;
+      font-size: 12px;
       text-align: left;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
   <div class="main-wrapper">
-    <div class="left-box"></div>
+    <div class="left-box">
+      <!-- Tambahkan form di sini jika perlu -->
+      <form id="topupForm">
+        <label for="id">ID Game:</label>
+        <input type="text" id="id" required />
+
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required />
+
+        <label for="payment">Pembayaran:</label>
+        <select id="payment" required>
+          <option value="">-- Pilih --</option>
+          <option value="Dana">Dana</option>
+          <option value="Gopay">Gopay</option>
+          <option value="OVO">OVO</option>
+        </select>
+
+        <input type="hidden" name="game" value="Mobile Legends" />
+
+        <button type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </div>
 
     <div>
       <div class="diamond-list">
@@ -151,6 +156,8 @@
       <div id="price-detail">
         <h3>Detail Harga</h3>
         <p id="detail-text"></p>
+        <hr />
+        <p><strong>Total:</strong> <span id="total-harga">Rp0</span></p>
       </div>
     </div>
   </div>
@@ -173,15 +180,51 @@
     function updateDetail() {
       const detailBox = document.getElementById("price-detail");
       const detailText = document.getElementById("detail-text");
+      const totalHargaSpan = document.getElementById("total-harga");
 
       if (selectedItems.length > 0) {
         detailBox.style.display = "block";
         detailText.textContent = selectedItems.join(', ');
+
+        let total = 0;
+        selectedItems.forEach(item => {
+          const match = item.match(/Rp([\d.]+)/);
+          if (match) {
+            total += parseInt(match[1].replace(/\./g, ''));
+          }
+        });
+        totalHargaSpan.textContent = "Rp" + total.toLocaleString('id-ID');
       } else {
         detailBox.style.display = "none";
         detailText.textContent = "";
+        totalHargaSpan.textContent = "Rp0";
       }
     }
+
+    document.getElementById("topupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const gameInput = document.querySelector('input[name="game"]');
+      const game = gameInput ? gameInput.value : "";
+      const id = document.getElementById("id").value;
+      const payment = document.getElementById("payment").value;
+      const name = document.getElementById("name").value;
+      const nominal = document.getElementById("detail-text").textContent;
+
+      let total = 0;
+      selectedItems.forEach(item => {
+        const match = item.match(/Rp([\d.]+)/);
+        if (match) {
+          total += parseInt(match[1].replace(/\./g, ''));
+        }
+      });
+
+      const pesan = `🛒 Pesanan Top Up\nGame: ${game}\nID: ${id}\nNominal: ${nominal}\nTotal: Rp${total.toLocaleString("id-ID")}\nPembayaran: ${payment}\nNama: ${name}`;
+      const nomorAdmin = "6285713056206";
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(url, "_blank");
+    });
   </script>
 </body>
 </html>
