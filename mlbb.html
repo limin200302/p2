@@ -6,23 +6,6 @@
   <title>Top Up Mobile Legends</title>
   <link rel="stylesheet" href="assets/style.css" />
   <style>
-    .diamond-item {
-      font-size: 12px;
-      padding: 8px;
-    }
-    .diamond-item.selected {
-      background-color: #cce5ff !important;
-      border: 2px solid #007bff;
-    }
-    .diamond-item .checkmark {
-      margin-left: auto;
-      color: green;
-      font-size: 16px;
-      display: none;
-    }
-    .diamond-item.selected .checkmark {
-      display: block;
-    }
     body {
       background-color: #000;
       color: #003366;
@@ -46,8 +29,12 @@
       border-radius: 12px;
       background: silver;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      <div style="font-size: 14px; color: #003366;"><strong style="font-size: 13px;">$1</strong><br><span style="font-size: 12px;">$2</span></div>
       transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .diamond-item.selected {
+      background-color: #cce5ff !important;
+      border: 2px solid #007bff;
     }
     .diamond-item:hover {
       transform: translateY(-4px);
@@ -57,142 +44,106 @@
       width: 32px;
       height: 32px;
     }
-    .qty-control {
+    .diamond-item .checkmark {
       margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .qty-control input {
-      width: 40px;
-      text-align: center;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f0f0f0;
-    }
-    .qty-control button {
-      padding: 6px 12px;
-      background: linear-gradient(to right, #28a745, #218838);
-      color: white;
-      border: none;
+      color: green;
       font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      display: none;
     }
-    .qty-control button:hover {
-      background: linear-gradient(to right, #218838, #1e7e34);
-    }
-    button[type="submit"] {
+    .diamond-item.selected .checkmark {
       display: block;
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background: linear-gradient(to right, #007bff, #0056b3);
-      border: none;
-      color: white;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
     }
-    button[type="submit"]:hover {
-      background: linear-gradient(to right, #0056b3, #003f88);
+    #price-detail {
+      display: none;
+      margin: 30px auto;
+      width: 60%;
+      text-align: center;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      color: #000;
     }
   </style>
 </head>
 <body>
-  <div class="diamond-list" style="margin-left: 10%;">
-        <div class="diamond-item$1" onclick="selectItem(this)">
-          <img src="assets/images/diamond.png" alt="Diamond" />
-          <div style="flex-grow:1; font-size: 14px; color: #003366;"><strong style="font-size: 13px;">$1</strong><br><span style="font-size: 12px;">$2</span></div><img src='assets/images/diamond.png' alt='Diamond' style='width:24px;height:24px;'/>
-          <span class="checkmark">✔</span>
-        </div>
-        <div class="diamond-item">
-          <img src="assets/images/diamond.png" alt="Diamond" />
-          <div>
-            <strong>172 Diamond</strong>
-            <p>Rp30.000</p>
-          </div>
-          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
-        </div>
-        <div class="diamond-item">
-          <img src="assets/images/diamond.png" alt="Diamond" />
-          <div>
-            <strong>344 Diamond</strong>
-            <p>Rp60.000</p>
-          </div>
-          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
-        </div>
-        <div class="diamond-item">
-          <img src="assets/images/diamond.png" alt="Diamond" />
-          <div>
-            <strong>1.000 Diamond</strong>
-            <p>Rp225.000</p>
-          </div>
-          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
-        </div>
-        <div class="diamond-item">
-          <img src="assets/images/diamond.png" alt="Diamond" />
-          <div>
-            <strong>2.000 Diamond</strong>
-            <p>Rp300.000</p>
-          </div>
-          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
-        </div>
-        <div class="diamond-item">
-          <img src="assets/images/diamond.png" alt="Diamond" />
-          <div>
-            <strong>4.000 Diamond</strong>
-            <p>Rp400.000</p>
-          </div>
-          <button type="button" onclick="showDetail('86 Diamond', 'Rp15.000')">Pilih</button>
-        </div>
+
+  <div class="diamond-list">
+    <div class="diamond-item" onclick="selectItem(this, '172 Diamond - Rp30.000')">
+      <img src="image/diamond.png" alt="Diamond" />
+      <div>
+        <strong>172 Diamond</strong>
+        <p>Rp30.000</p>
       </div>
+      <span class="checkmark">✔</span>
+    </div>
+    <div class="diamond-item" onclick="selectItem(this, '344 Diamond - Rp60.000')">
+      <img src="image/diamond.png" alt="Diamond" />
+      <div>
+        <strong>344 Diamond</strong>
+        <p>Rp60.000</p>
+      </div>
+      <span class="checkmark">✔</span>
+    </div>
+    <div class="diamond-item" onclick="selectItem(this, '1.000 Diamond - Rp225.000')">
+      <img src="image/diamond.png" alt="Diamond" />
+      <div>
+        <strong>1.000 Diamond</strong>
+        <p>Rp225.000</p>
+      </div>
+      <span class="checkmark">✔</span>
+    </div>
+    <div class="diamond-item" onclick="selectItem(this, '2.000 Diamond - Rp300.000')">
+      <img src="image/diamond.png" alt="Diamond" />
+      <div>
+        <strong>2.000 Diamond</strong>
+        <p>Rp300.000</p>
+      </div>
+      <span class="checkmark">✔</span>
+    </div>
+    <div class="diamond-item" onclick="selectItem(this, '4.000 Diamond - Rp400.000')">
+      <img src="image/diamond.png" alt="Diamond" />
+      <div>
+        <strong>4.000 Diamond</strong>
+        <p>Rp400.000</p>
+      </div>
+      <span class="checkmark">✔</span>
+    </div>
+  </div>
+
+  <div id="price-detail">
+    <h3>Detail Harga</h3>
+    <p id="detail-text"></p>
+  </div>
 
   <script>
-    function adjustQty(amount, field) {
-      const input = document.getElementById(field);
-      let val = parseInt(input.value);
-      if (!isNaN(val)) {
-        val += amount;
-        if (val < 0) val = 0;
-        input.value = val;
-      }
-    }
+    let selectedItems = [];
 
-    document.getElementById("topupForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+    function selectItem(element, detailText) {
+      const isSelected = element.classList.contains('selected');
 
-      const id = document.getElementById("mlbb-id").value;
-      const payment = document.getElementById("mlbb-payment").value;
-      const name = document.getElementById("mlbb-name").value;
-      const detailText = document.getElementById("detail-text").textContent;
-
-      if (!detailText) {
-        alert("Silakan pilih salah satu item terlebih dahulu.");
-        return;
+      if (isSelected) {
+        element.classList.remove('selected');
+        selectedItems = selectedItems.filter(item => item !== detailText);
+      } else {
+        element.classList.add('selected');
+        selectedItems.push(detailText);
       }
 
-      const pesan = `🛒 Pesanan Top Up
-Game: Mobile Legends
-ID: ${id}
-Nominal: ${detailText}
-Pembayaran: ${payment}
-Nama: ${name}`;
-      const nomorAdmin = "6285713056206";
-      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
-
-      window.open(url, "_blank");
-    });
-
-    function showDetail(item, price) {
-      document.getElementById("price-detail").style.display = "block";
-      document.getElementById("detail-text").textContent = `${item} - ${price}`;
+      updateDetailBox();
     }
-  function selectItem(element) {
-      document.querySelectorAll('.diamond-item').forEach(item => item.classList.remove('selected'));
-      element.classList.add('selected');
+
+    function updateDetailBox() {
+      const detailBox = document.getElementById("price-detail");
+      const detailText = document.getElementById("detail-text");
+
+      if (selectedItems.length > 0) {
+        detailBox.style.display = "block";
+        detailText.textContent = selectedItems.join(', ');
+      } else {
+        detailBox.style.display = "none";
+        detailText.textContent = "";
+      }
     }
   </script>
 </body>
