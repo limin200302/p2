@@ -10,6 +10,38 @@
       background: linear-gradient(to right, #1e3c72, #2a0845);
     }
 
+    .top-banner img {
+      width: 100%;
+      max-width: 1000px;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+    }
+
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 50px;
+      gap: 30px;
+    }
+
+    .left-box {
+      width: 220px;
+      height: 462px;
+      background-color: white;
+      border-radius: 10px;
+      margin-left: -20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left-box img {
+      width: 80%;
+      height: auto;
+    }
+
     .diamond-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -70,7 +102,7 @@
 
     #price-detail {
       display: none;
-      width: 30%;
+      width: 352px;
       padding: 6px 10px;
       background-color: #f8f9fa;
       border: 1px solid #ccc;
@@ -78,6 +110,7 @@
       color: #000;
       font-size: 12px;
       text-align: left;
+      margin-top: 20px;
     }
 
     #detail-list {
@@ -91,9 +124,14 @@
   </style>
 </head>
 <body>
+
+  <div class="top-banner">
+    <img src="assets/image/banner.jpg" alt="Banner MLBB">
+  </div>
+
   <div class="main-wrapper">
     <div class="left-box">
-      <!-- dikosongkan, silakan isi custom -->
+      <img src="assets/image/mlbb.png" alt="MLBB Logo">
     </div>
 
     <div>
