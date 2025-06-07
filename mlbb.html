@@ -12,11 +12,24 @@
       font-family: Arial, sans-serif;
     }
 
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 200px; /* updated */
+    }
+
+    .left-box {
+      width: 400px;
+      height: 600px;
+      background-color: white;
+      border-radius: 10px;
+    }
+
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 300px; /* ruang di atas untuk header/section lain */
     }
 
     .diamond-list {
@@ -94,53 +107,59 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="diamond-list">
-      <div class="diamond-item" onclick="selectItem(this, '172 Diamond - Rp30.000')">
-        <img src="assets/image/diamond.png" alt="Diamond" />
-        <div>
-          <strong>172 Diamond</strong>
-          <p>Rp30.000</p>
-        </div>
-        <span class="checkmark">✔</span>
-      </div>
-      <div class="diamond-item" onclick="selectItem(this, '344 Diamond - Rp60.000')">
-        <img src="assets/image/diamond.png" alt="Diamond" />
-        <div>
-          <strong>344 Diamond</strong>
-          <p>Rp60.000</p>
-        </div>
-        <span class="checkmark">✔</span>
-      </div>
-      <div class="diamond-item" onclick="selectItem(this, '1.000 Diamond - Rp225.000')">
-        <img src="assets/image/diamond.png" alt="Diamond" />
-        <div>
-          <strong>1.000 Diamond</strong>
-          <p>Rp225.000</p>
-        </div>
-        <span class="checkmark">✔</span>
-      </div>
-      <div class="diamond-item" onclick="selectItem(this, '2.000 Diamond - Rp300.000')">
-        <img src="assets/image/diamond.png" alt="Diamond" />
-        <div>
-          <strong>2.000 Diamond</strong>
-          <p>Rp300.000</p>
-        </div>
-        <span class="checkmark">✔</span>
-      </div>
-      <div class="diamond-item" onclick="selectItem(this, '4.000 Diamond - Rp400.000')">
-        <img src="assets/image/diamond.png" alt="Diamond" />
-        <div>
-          <strong>4.000 Diamond</strong>
-          <p>Rp400.000</p>
-        </div>
-        <span class="checkmark">✔</span>
-      </div>
+  <div class="main-wrapper">
+    <div class="left-box">
+      <!-- Anda bisa isi konten di sini nanti -->
     </div>
 
-    <div id="price-detail">
-      <h3>Detail Harga</h3>
-      <p id="detail-text"></p>
+    <div class="container">
+      <div class="diamond-list">
+        <div class="diamond-item" onclick="selectItem(this, '172 Diamond - Rp30.000')">
+          <img src="assets/image/diamond.png" alt="Diamond" />
+          <div>
+            <strong>172 Diamond</strong>
+            <p>Rp30.000</p>
+          </div>
+          <span class="checkmark">✔</span>
+        </div>
+        <div class="diamond-item" onclick="selectItem(this, '344 Diamond - Rp60.000')">
+          <img src="assets/image/diamond.png" alt="Diamond" />
+          <div>
+            <strong>344 Diamond</strong>
+            <p>Rp60.000</p>
+          </div>
+          <span class="checkmark">✔</span>
+        </div>
+        <div class="diamond-item" onclick="selectItem(this, '1.000 Diamond - Rp225.000')">
+          <img src="assets/image/diamond.png" alt="Diamond" />
+          <div>
+            <strong>1.000 Diamond</strong>
+            <p>Rp225.000</p>
+          </div>
+          <span class="checkmark">✔</span>
+        </div>
+        <div class="diamond-item" onclick="selectItem(this, '2.000 Diamond - Rp300.000')">
+          <img src="assets/image/diamond.png" alt="Diamond" />
+          <div>
+            <strong>2.000 Diamond</strong>
+            <p>Rp300.000</p>
+          </div>
+          <span class="checkmark">✔</span>
+        </div>
+        <div class="diamond-item" onclick="selectItem(this, '4.000 Diamond - Rp400.000')">
+          <img src="assets/image/diamond.png" alt="Diamond" />
+          <div>
+            <strong>4.000 Diamond</strong>
+            <p>Rp400.000</p>
+          </div>
+          <span class="checkmark">✔</span>
+        </div>
+      </div>
+
+      <div id="price-detail">
+        <h3>Detail Harga</h3>
+        <p id="detail-text"></p>
+      </div>
     </div>
   </div>
 
