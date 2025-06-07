@@ -80,6 +80,11 @@
       text-align: left;
     }
 
+    #detail-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
     #detail-list li {
       margin-bottom: 4px;
     }
@@ -88,7 +93,7 @@
 <body>
   <div class="main-wrapper">
     <div class="left-box">
-      <!-- Kosong, bisa kamu isi custom -->
+      <!-- dikosongkan, silakan isi custom -->
     </div>
 
     <div>
@@ -141,23 +146,52 @@
         <hr />
         <p><strong>Total:</strong> <span id="total-harga">Rp0</span></p>
       </div>
-
-      <!-- Form tetap dipisahkan agar bisa digunakan kalau dibutuhkan -->
-      <form id="topupForm" style="margin-top:20px;">
-        <input type="hidden" name="game" value="Mobile Legends" />
-        <input type="text" id="id" placeholder="Masukkan ID Game" required />
-        <input type="text" id="name" placeholder="Nama Lengkap" required />
-        <select id="payment" required>
-          <option value="">Pilih Pembayaran</option>
-          <option value="Dana">Dana</option>
-          <option value="Gopay">Gopay</option>
-          <option value="OVO">OVO</option>
-        </select>
-        <button type="submit">Kirim ke WhatsApp</button>
-      </form>
     </div>
   </div>
 
-  <script src="mlbb.js"></script>
+  <script>
+    let selectedItems = [];
+
+    function selectItem(element, detail) {
+      const isSelected = element.classList.contains('selected');
+      if (isSelected) {
+        element.classList.remove('selected');
+        selectedItems = selectedItems.filter(item => item !== detail);
+      } else {
+        element.classList.add('selected');
+        selectedItems.push(detail);
+      }
+      updateDetail();
+    }
+
+    function updateDetail() {
+      const detailBox = document.getElementById("price-detail");
+      const detailList = document.getElementById("detail-list");
+      const totalHargaSpan = document.getElementById("total-harga");
+
+      detailList.innerHTML = "";
+
+      if (selectedItems.length > 0) {
+        detailBox.style.display = "block";
+
+        let total = 0;
+        selectedItems.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          detailList.appendChild(li);
+
+          const match = item.match(/Rp([\d.]+)/);
+          if (match) {
+            total += parseInt(match[1].replace(/\./g, ''));
+          }
+        });
+
+        totalHargaSpan.textContent = "Rp" + total.toLocaleString('id-ID');
+      } else {
+        detailBox.style.display = "none";
+        totalHargaSpan.textContent = "Rp0";
+      }
+    }
+  </script>
 </body>
 </html>
