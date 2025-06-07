@@ -5,17 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Up Mobile Legends</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 200px;
+      gap: 30px;
+    }
+
+    .left-box {
+      width: 200px;
+      height: 420px;
+      background-color: white;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="main-wrapper">
-    <!-- Kotak Kosong Kiri -->
     <div class="left-box">
-      <!-- Silakan isi konten di sini nanti -->
+      <!-- Isi nanti di sini -->
     </div>
 
-    <!-- Kontainer Diamond & Harga -->
-    <div class="container">
-      <div class="diamond-list">
+    <div>
+      <div class="diamond-list" style="margin-left: 10%;">
         <div class="diamond-item" onclick="selectItem(this, '172 Diamond - Rp30.000')">
           <img src="assets/image/diamond.png" alt="Diamond" />
           <div>
@@ -58,10 +72,9 @@
         </div>
       </div>
 
-      <!-- Box Detail Harga -->
-      <div id="price-detail">
-        <h3>Detail Harga</h3>
-        <p id="detail-text"></p>
+      <div id="price-detail" style="display: none; margin: 20px auto; width: 40%; padding: 5px 10px; background: #f8f9fa; border: 1px solid #ccc; border-radius: 10px; color: #000; font-size: 13px; text-align: left;">
+        <h3 style="margin: 5px 0;">Detail Harga</h3>
+        <p id="detail-text" style="margin: 0;"></p>
       </div>
     </div>
   </div>
