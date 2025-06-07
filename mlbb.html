@@ -16,7 +16,7 @@
       width: 100%;
       max-width: 600px;
       gap: 16px;
-      margin: 0 auto;
+      margin-bottom: 16px;
     }
 
     .diamond-item {
@@ -70,8 +70,8 @@
 
     #price-detail {
       display: none;
-      margin-top: 20px;
-      width: 320px;
+      width: 100%;
+      max-width: 600px;
       padding: 6px 10px;
       background-color: #f8f9fa;
       border: 1px solid #ccc;
@@ -79,34 +79,13 @@
       color: #000;
       font-size: 12px;
       text-align: left;
-      margin-left: auto;
-      margin-right: auto;
     }
   </style>
 </head>
 <body>
   <div class="main-wrapper">
     <div class="left-box">
-      <!-- Tambahkan form di sini jika perlu -->
-      <form id="topupForm">
-        <label for="id">ID Game:</label>
-        <input type="text" id="id" required />
-
-        <label for="name">Nama:</label>
-        <input type="text" id="name" required />
-
-        <label for="payment">Pembayaran:</label>
-        <select id="payment" required>
-          <option value="">-- Pilih --</option>
-          <option value="Dana">Dana</option>
-          <option value="Gopay">Gopay</option>
-          <option value="OVO">OVO</option>
-        </select>
-
-        <input type="hidden" name="game" value="Mobile Legends" />
-
-        <button type="submit">Kirim ke WhatsApp</button>
-      </form>
+      <!-- dikosongkan, silakan isi custom -->
     </div>
 
     <div>
@@ -200,31 +179,6 @@
         totalHargaSpan.textContent = "Rp0";
       }
     }
-
-    document.getElementById("topupForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const gameInput = document.querySelector('input[name="game"]');
-      const game = gameInput ? gameInput.value : "";
-      const id = document.getElementById("id").value;
-      const payment = document.getElementById("payment").value;
-      const name = document.getElementById("name").value;
-      const nominal = document.getElementById("detail-text").textContent;
-
-      let total = 0;
-      selectedItems.forEach(item => {
-        const match = item.match(/Rp([\d.]+)/);
-        if (match) {
-          total += parseInt(match[1].replace(/\./g, ''));
-        }
-      });
-
-      const pesan = `🛒 Pesanan Top Up\nGame: ${game}\nID: ${id}\nNominal: ${nominal}\nTotal: Rp${total.toLocaleString("id-ID")}\nPembayaran: ${payment}\nNama: ${name}`;
-      const nomorAdmin = "6285713056206";
-      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
-
-      window.open(url, "_blank");
-    });
   </script>
 </body>
 </html>
