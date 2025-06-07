@@ -31,14 +31,15 @@
       height: 462px;
       background-color: white;
       border-radius: 10px;
-      margin-left: -40px;
+      margin-left: -20px;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .left-box img {
-      width: 80%;
+      width: 70%;
+      margin-top: 20px;
       height: auto;
     }
 
@@ -120,6 +121,35 @@
 
     #detail-list li {
       margin-bottom: 4px;
+    }
+
+    /* ✅ RESPONSIVE UNTUK HP */
+    @media (max-width: 768px) {
+      .main-wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      .left-box {
+        width: 90%;
+        height: auto;
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .diamond-list {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 90%;
+      }
+
+      #price-detail {
+        width: 90%;
+      }
+
+      .top-banner img {
+        max-width: 95%;
+      }
     }
   </style>
 </head>
