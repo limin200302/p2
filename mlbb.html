@@ -5,113 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Up Mobile Legends</title>
   <link rel="stylesheet" href="assets/style.css" />
-  <style>
-    body {
-      background-color: #000;
-      color: #003366;
-      font-family: Arial, sans-serif;
-    }
-
-    .main-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 200px; /* updated */
-    }
-
-    .left-box {
-      width: 400px;
-      height: 600px;
-      background-color: white;
-      border-radius: 10px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .diamond-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      width: 40%;
-      gap: 16px;
-    }
-
-    .diamond-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      background: silver;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .diamond-item.selected {
-      background-color: #cce5ff !important;
-      border: 2px solid #007bff;
-    }
-
-    .diamond-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    }
-
-    .diamond-item img {
-      width: 28px;
-      height: 28px;
-    }
-
-    .diamond-item strong {
-      font-size: 12px;
-    }
-
-    .diamond-item p {
-      font-size: 11px;
-      margin: 0;
-    }
-
-    .diamond-item .checkmark {
-      margin-left: auto;
-      color: green;
-      font-size: 14px;
-      display: none;
-    }
-
-    .diamond-item.selected .checkmark {
-      display: block;
-    }
-
-    #price-detail {
-      display: none;
-      margin-top: 20px;
-      width: 40%;
-      padding: 5px 10px;
-      background-color: #f8f9fa;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      color: #000;
-      font-size: 13px;
-      text-align: left;
-    }
-
-    #price-detail h3, #price-detail p {
-      margin: 5px 0;
-    }
-  </style>
 </head>
 <body>
   <div class="main-wrapper">
+    <!-- Kotak Kosong Kiri -->
     <div class="left-box">
-      <!-- Anda bisa isi konten di sini nanti -->
+      <!-- Silakan isi konten di sini nanti -->
     </div>
 
+    <!-- Kontainer Diamond & Harga -->
     <div class="container">
       <div class="diamond-list">
         <div class="diamond-item" onclick="selectItem(this, '172 Diamond - Rp30.000')">
@@ -156,6 +58,7 @@
         </div>
       </div>
 
+      <!-- Box Detail Harga -->
       <div id="price-detail">
         <h3>Detail Harga</h3>
         <p id="detail-text"></p>
