@@ -13,6 +13,7 @@
       padding: 20px;
       background-color: transparent;
     }
+
     .banner img {
       background-color: rgba(255, 255, 255, 0.7);
       height: 350px;
@@ -21,24 +22,51 @@
       display: block;
       margin: 0 auto;
     }
+
     .form-section {
       text-align: center;
       margin-top: 30px;
     }
+
     .game-options {
       display: flex;
       justify-content: center;
       gap: 30px;
       margin-top: 20px;
     }
+
     .game-option img {
       width: 128px;
       height: 128px;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .game-option img:hover {
       transform: scale(1.1);
+    }
+
+    /* ✅ Responsif di layar HP */
+    @media (max-width: 768px) {
+      .game-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .game-option img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .banner img {
+        height: auto;
+        width: 95%;
+      }
+
+      .form-section h2 {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
