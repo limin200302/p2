@@ -14,23 +14,22 @@
     .diamond-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      width: 80%;
-      max-width: 60%;
+      width: 40%;
       margin: 20px auto;
       gap: 16px;
-      margin-top: 20px;
     }
     .diamond-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 12px;
+      padding: 10px;
       border: 1px solid #ccc;
       border-radius: 12px;
       background: silver;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
+      font-size: 12px;
     }
     .diamond-item.selected {
       background-color: #cce5ff !important;
@@ -41,13 +40,20 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
     .diamond-item img {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
+    }
+    .diamond-item strong {
+      font-size: 12px;
+    }
+    .diamond-item p {
+      font-size: 11px;
+      margin: 0;
     }
     .diamond-item .checkmark {
       margin-left: auto;
       color: green;
-      font-size: 16px;
+      font-size: 14px;
       display: none;
     }
     .diamond-item.selected .checkmark {
@@ -56,18 +62,18 @@
     #price-detail {
       display: none;
       margin: 30px auto;
-      width: 60%;
+      width: 50%;
       text-align: center;
-      padding: 15px;
+      padding: 5px 10px;
       background-color: #f8f9fa;
       border: 1px solid #ccc;
       border-radius: 10px;
       color: #000;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
-
   <div class="diamond-list">
     <div class="diamond-item" onclick="selectItem(this, '172 Diamond - Rp30.000')">
       <img src="image/diamond.png" alt="Diamond" />
@@ -112,28 +118,26 @@
   </div>
 
   <div id="price-detail">
-    <h3>Detail Harga</h3>
-    <p id="detail-text"></p>
+    <h3 style="margin: 5px 0;">Detail Harga</h3>
+    <p id="detail-text" style="margin: 0;"></p>
   </div>
 
   <script>
     let selectedItems = [];
 
-    function selectItem(element, detailText) {
+    function selectItem(element, detail) {
       const isSelected = element.classList.contains('selected');
-
       if (isSelected) {
         element.classList.remove('selected');
-        selectedItems = selectedItems.filter(item => item !== detailText);
+        selectedItems = selectedItems.filter(item => item !== detail);
       } else {
         element.classList.add('selected');
-        selectedItems.push(detailText);
+        selectedItems.push(detail);
       }
-
-      updateDetailBox();
+      updateDetail();
     }
 
-    function updateDetailBox() {
+    function updateDetail() {
       const detailBox = document.getElementById("price-detail");
       const detailText = document.getElementById("detail-text");
 
