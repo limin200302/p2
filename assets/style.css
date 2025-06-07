@@ -1,99 +1,94 @@
-
-## ✅ Fitur
-- UI responsif
-- Formulir dinamis untuk tiap game
-- Kirim otomatis ke WhatsApp admin
-- Desain ringan & cepat diakses
-
-## 📞 Kontak WhatsApp Admin
-`+62 857-1305-6206`
-
----
-
-## 🎨 `assets/style.css`
-
-Gabungan style untuk semua halaman (index, mlbb, dan 8ball).
-
-```css
-body {
-  background: url('../assets/images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: transparent;
-}
-
-/* Banner */
-.banner img {
-  height: 350px;
-  width: 1200px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Form Container */
-.form-section {
-  background: rgba(255, 255, 255, 0.95);
-  max-width: 400px;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-form input,
-form select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
-  width: 100%;
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 12px;
-  margin-top: 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-button:hover {
-  background: #218838;
-}
-
-/* Game Logo Grid */
-.game-options {
+/* Layout Wrapper untuk Grid & Kotak Kiri */
+.main-wrapper {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-.game-option img {
-  width: 128px;
-  height: 128px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.game-option img:hover {
-  transform: scale(1.1);
+  gap: 40px;
+  margin-top: 200px;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  color: #fff;
-  margin-top: 40px;
+/* Kotak Kosong di Kiri */
+.left-box {
+  width: 200px;
+  height: 420px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Container Diamond dan Detail Harga */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid Diamond List */
+.diamond-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 40%;
+  gap: 16px;
+}
+
+/* Item Diamond */
+.diamond-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: silver;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.diamond-item.selected {
+  background-color: #cce5ff !important;
+  border: 2px solid #007bff;
+}
+
+.diamond-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.diamond-item img {
+  width: 28px;
+  height: 28px;
+}
+
+.diamond-item strong {
+  font-size: 12px;
+}
+
+.diamond-item p {
+  font-size: 11px;
+  margin: 0;
+}
+
+.diamond-item .checkmark {
+  margin-left: auto;
+  color: green;
+  font-size: 14px;
+  display: none;
+}
+
+.diamond-item.selected .checkmark {
+  display: block;
+}
+
+/* Box Detail Harga */
+#price-detail {
+  display: none;
+  margin-top: 20px;
+  width: 40%;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #000;
+  font-size: 13px;
+  text-align: left;
 }
